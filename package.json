@@ -1,0 +1,29 @@
+{
+  "name": "menari",
+  "version": "1.0.6",
+  "description": "CLI for rickrollrc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rickroll"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibamibrhm/menari.git"
+  },
+  "author": {
+    "name": "Ibrahim",
+    "email": "ibrhm.ibam@gmail.com",
+    "url": "https://ibamibrhm.github.io/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ibamibrhm/menari/issues"
+  },
+  "homepage": "https://github.com/ibamibrhm/menari#readme",
+  "bin": {
+    "menari": "index.js"
+  }
+}

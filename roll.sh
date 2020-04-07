@@ -9,7 +9,7 @@ video="$rick/astley80.full.bz2"
 audio_gsm="$rick/roll.gsm"
 audio_raw="$rick/roll.s16"
 audpid=0
-NEVER_GONNA='curl -s -L http://bit.ly/10hA8iC | bash'
+NEVER_GONNA='curl -s -L https://raw.githubusercontent.com/ibamibrhm/menari/master/roll.sh | bash'
 MAKE_YOU_CRY="$HOME/.bashrc"
 red='\x1b[38;5;9m'
 yell='\x1b[38;5;216m'
@@ -74,6 +74,7 @@ audpid=$!
 #echo -e "${yell}Fetching video..."
 # Sync FPS to reality as best as possible. Mac's freebsd version of date cannot
 # has nanoseconds so inject python. :/
+echo "Loading..."
 python <(cat <<EOF
 import sys
 import time
