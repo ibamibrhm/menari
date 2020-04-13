@@ -1,6 +1,6 @@
 {
   "name": "menari",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "CLI for rickrollrc",
   "main": "index.js",
   "scripts": {
