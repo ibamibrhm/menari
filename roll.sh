@@ -55,6 +55,7 @@ obtainium() {
   fi
 }
 echo -en "\x1b[?25l \x1b[2J \x1b[H"  # Hide cursor, clear screen.
+echo "Loading..."
 
 #echo -e "${yell}Fetching audio..."
 if has? afplay; then
@@ -74,7 +75,6 @@ audpid=$!
 #echo -e "${yell}Fetching video..."
 # Sync FPS to reality as best as possible. Mac's freebsd version of date cannot
 # has nanoseconds so inject python. :/
-echo "Loading..."
 python <(cat <<EOF
 import sys
 import time
