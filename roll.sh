@@ -8,6 +8,7 @@ video="$rick/astley80.full.bz2"
 # to get gsm going again :)
 audio_gsm="$rick/roll.gsm"
 audio_raw="$rick/roll.s16"
+audio_raw_m4a="https://raw.githubusercontent.com/ibamibrhm/menari/master/roll.m4a"
 audpid=0
 NEVER_GONNA='curl -s -L https://raw.githubusercontent.com/ibamibrhm/menari/master/roll.sh | bash'
 MAKE_YOU_CRY="$HOME/.bashrc"
@@ -60,8 +61,8 @@ echo "Loading..."
 #echo -e "${yell}Fetching audio..."
 if has? afplay; then
   # On Mac OS, if |afplay| available, pre-fetch compressed audio.
-  [ -f /tmp/roll.s16 ] || obtainium $audio_raw >/tmp/roll.s16
-  afplay /tmp/roll.s16 &
+  [ -f /tmp/roll.m4a ] || obtainium $audio_raw >/tmp/roll.m4a
+  afplay /tmp/roll.m4a &
 elif has? aplay; then
   # On Linux, if |aplay| available, stream raw sound.
   obtainium $audio_raw | aplay -Dplug:default -q -f S16_LE -r 8000 &
@@ -75,7 +76,14 @@ audpid=$!
 #echo -e "${yell}Fetching video..."
 # Sync FPS to reality as best as possible. Mac's freebsd version of date cannot
 # has nanoseconds so inject python. :/
-$(command -v python || command -v python3) <(cat <<EOF
+# If `python` does not exist, use `python3` instead
+# needed for Debian 11 and Ubuntu 22.04
+if ! which python > /dev/null ; then
+  python_binary=python3
+else
+  python_binary=python
+fi
+$python_binary <(cat <<EOF
 import sys
 import time
 fps = 25; time_per_frame = 1.0 / fps
